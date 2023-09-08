@@ -1,0 +1,23 @@
+{
+  "prefix": "<gray>░ <red>[-<b>¬</b>º<b>c<gray>s</gray></b><gray>] <red>-</red> ",
+
+  "command.permission.console_only": "That can only be done from the console.",
+  "command.permission.in_game_only": "That can only be done from in-game.",
+  "command.permission.no_permission": "You do not have permission to do that.",
+  "store.permission.create": "You do not have permission to create this store.",
+  "store.permission.purchase": "You do not have permission to purchase this item.",
+  "weapon.permission.use": "You do not have permission to use this.",
+  "weapon.permission.craft": "You do not have permission to craft this.",
+
+  "command.configuration_reloaded": "Configuration reloaded.",
+  "command.configuration_stats": "<white><weapons></white> weapons and <white><messages></white> messages are currently loaded,",
+  "command.invalid": "Invalid command - use <white>/<alias> help</white> for more information.",
+  "command.reload_disabled": "This weapon cannot be reloaded.",
+
+  "store.cannot_afford": "You cannot afford to purchase this item.",
+  "store.created": "Store successfully created!",
+  "store.items_needed": "You need <amount> <item>.",
+  "store.purchased": "Item purchased - <item>",
+
+  "weapon.received": "Package received - <item> ✕<amount>"
+}

@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.shampaggon.crackshot.util.CSPMessages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
@@ -121,6 +122,8 @@ import org.bukkit.util.Vector;
 
 public class CSDirector extends JavaPlugin implements Listener
 {
+    public static CSDirector INSTANCE;
+
     public Map<String, Integer[]> zoomStorage = new HashMap<>();
     public Map<String, Collection<Integer>> burst_task_IDs = new HashMap<>();
     public Map<String, Collection<Integer>> global_reload_IDs = new HashMap<>();
@@ -155,6 +158,14 @@ public class CSDirector extends JavaPlugin implements Listener
 
     public final CSMinion csminion = new CSMinion(this);
 
+    @Override
+    public void onLoad()
+    {
+        INSTANCE = this;
+
+        CSPMessages.loadMessages();
+    }
+
     public void onEnable()
     {
         this.csminion.loadWeapons(null);
@@ -164,6 +175,10 @@ public class CSDirector extends JavaPlugin implements Listener
 
         plugin.getSLF4JLogger().info("Gun-mode activated. Boop!"); // is this a PewDiePie reference?
         Bukkit.getPluginManager().registerEvents(this, this);
+
+        final CSCommand command = new CSCommand(this);
+        getCommand("cplus").setExecutor(command);
+        getCommand("cplus").setTabCompleter(command);
     }
 
 
@@ -215,7 +230,7 @@ public class CSDirector extends JavaPlugin implements Listener
         this.rpm_ticks.clear();
         this.rpm_shots.clear();
         CSMessages.messages.clear();
-
+        CSPMessages.unloadMessages();
 
         this.csminion.clearRecipes();
     }
@@ -1601,7 +1616,7 @@ public class CSDirector extends JavaPlugin implements Listener
 
         if (!ent.hasMetadata("[CS] NHC"))
         {
-            ent.setMetadata("[CS] NHC", new FixedMetadataValue(this, Boolean.valueOf(true)));
+            ent.setMetadata("[CS] NHC", new FixedMetadataValue(this, true));
 
             Bukkit.getScheduler().scheduleSyncDelayedTask(this, () ->
             {

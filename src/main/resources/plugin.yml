@@ -1,17 +1,20 @@
 main: com.shampaggon.crackshot.CSDirector
-name: CrackShot
+name: CrackShotPlus
 authors:
   - Shampaggon
   - videogamesm12
 version: '${version}'
 description: Replicate any first-person shooter with advanced gun-mechanics and a vast number of exciting and fully customisable features.
 website: http://dev.bukkit.org/server-mods/crackshot/
-api-version: 1.17
+api-version: 1.19
 
 commands:
   crackshot:
     description: Displays general information.
     aliases: [cs,cra,shot]
+  cplus:
+    description: Interact with CrackShot+
+    aliases: [csp]
 
 permissions:
   crackshot.*:
