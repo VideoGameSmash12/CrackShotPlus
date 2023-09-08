@@ -6,7 +6,7 @@ authors:
 version: '${version}'
 description: Replicate any first-person shooter with advanced gun-mechanics and a vast number of exciting and fully customisable features.
 website: http://dev.bukkit.org/server-mods/crackshot/
-api-version: 1.13
+api-version: 1.17
 
 commands:
   crackshot:
