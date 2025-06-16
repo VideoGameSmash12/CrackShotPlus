@@ -1,45 +1,32 @@
- package com.shampaggon.crackshot.events;
- 
- import org.bukkit.entity.Entity;
- import org.bukkit.entity.Player;
- import org.bukkit.event.Event;
- import org.bukkit.event.HandlerList;
- 
- public class WeaponShootEvent extends Event {
-   private static final HandlerList handlers = new HandlerList();
-   private final Player player;
-   private final Entity objProj;
-   private final String weaponTitle;
-   
-   public WeaponShootEvent(Player player, Entity objProj, String weaponTitle) {
-     this.player = player;
-     this.objProj = objProj;
-     this.weaponTitle = weaponTitle;
-   }
-   
-   public Player getPlayer() {
-     return this.player;
-   }
-   
-   public Entity getProjectile() {
-     return this.objProj;
-   }
-   
-   public String getWeaponTitle() {
-     return this.weaponTitle;
-   }
-   
-   public HandlerList getHandlers() {
-     return handlers;
-   }
-   
-   public static HandlerList getHandlerList() {
-     return handlers;
-   }
- }
+package com.shampaggon.crackshot.events;
 
+import lombok.Getter;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
+import org.jetbrains.annotations.NotNull;
 
-/* Location:              /home/videogamesm12/Downloads/CrackShot.jar!/com/shampaggon/crackshot/events/WeaponShootEvent.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */
+@Getter
+public class WeaponShootEvent extends Event
+{
+    @Getter
+	private static final HandlerList handlerList = new HandlerList();
+
+	private final Player player;
+	private final Entity projectile;
+	private final String weaponTitle;
+
+	public WeaponShootEvent(Player player, Entity projectile, String weaponTitle)
+	{
+		this.player = player;
+		this.projectile = projectile;
+		this.weaponTitle = weaponTitle;
+	}
+
+    @Override
+    public @NotNull HandlerList getHandlers()
+    {
+        return handlerList;
+    }
+}
